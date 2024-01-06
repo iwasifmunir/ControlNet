@@ -1,0 +1,150 @@
+*, a, div, p, ul, li, h1, h2, h3, h4, h5, h6 {box-sizing: border-box; margin: 0; padding: 0; list-style: none; outline: 0 none; text-decoration: none}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply leading-[normal] m-0; font-family: Montserrat; margin: 0; 
+}
+*,
+::before,
+::after {
+  border-width: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #333;
+  color: #fff;
+}
+
+.borderline span.borderComment{position: absolute; left: -27px; top: 33px; width: 25px; background: transparent; border-left: 1px solid rgba(255, 255, 255, 0.30); display: inline-block; height: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.30);}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      text-align: center;
+  }
+
+  .nav-links.show {
+      display: flex;
+  }
+
+  .hamburger {
+      display: block;
+  }
+}
+
+.btnGray{ border: 1px solid rgba(255, 255, 255, 0.40); background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(7.5px); }
+.bgBlackTranspent{background:rgba(0, 0, 0, 0.80);}
+.borderTransparent{border-bottom:1px solid rgba(255, 255, 255, 0.30);}
+input, select{color: white}
+select option{background:black; padding: 5px 0 ; border: 0 none}
+.textGlow{text-shadow: 0 0 10px rgba(255, 255, 255, 0.8)}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px black inset;
+}
+@layer utilities {
+
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+
+  .flexBetween {
+    @apply flex items-center justify-between;
+  }
+
+  .flexStart {
+    @apply flex items-center justify-start;
+  }
+
+  .flexEnd {
+    @apply flex items-center justify-end;
+  }
+  .whiteBorder {
+    @apply border border-solid border-white border-opacity-20
+  }
+  .dimWhiteBorder {
+    @apply border border-solid border-white border-opacity-5
+  }
+  
+}
+
+
+/* Basic styling */
+
+[type=checkbox] {
+  width: 1.8rem;
+  height: 1.8rem;
+  color: rgba(255, 255, 255, 0.15);
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  outline: 0;
+  flex-grow: 0;
+  background-color: #131314;
+  transition: background 300ms;
+  cursor: pointer;
+}
+
+
+/* Pseudo element for check styling */
+
+[type=checkbox]::before {
+  content: "";
+  color: transparent;
+  display: block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  border: 0;
+  background-color: transparent;
+  background-size: contain;
+  box-shadow: inset 0 0 0 1px #CCD3D8; 
+}
+.autofill-reset:-webkit-autofill,
+.autofill-reset:focus {
+  box-shadow: 0 0 0 30px white inset !important; /* Set the background color to your desired color */
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* Checked */
+
+[type=checkbox]:checked {
+  background-color: currentcolor;
+}
+
+[type=checkbox]:checked::before {
+  box-shadow: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='%23fff'/%3E %3C/svg%3E");
+}
